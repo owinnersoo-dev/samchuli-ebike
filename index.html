@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>삼천리 팬텀 어라운드 구입·시승 리뷰 INDEX</title>
+<style>
+:root{--bg:#f6f7f8;--card:#fff;--text:#202124;--muted:#6b7280;--line:#e5e7eb;--green:#03c75a;--blue:#2563eb;--orange:#ff7a00}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.65}
+button,input,textarea{font:inherit}.wrap{max-width:980px;margin:auto;padding:16px 14px 90px}
+.hero{background:linear-gradient(135deg,#fffdf8,#fff4e8);border:1px solid #eedbc4;border-radius:24px;padding:24px 20px}
+.hero small{font-weight:800;color:#a44d00}.hero h1{margin:8px 0;font-size:29px;line-height:1.25}.hero p{margin:0;color:var(--muted)}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.chip{background:#fff;border:1px solid #eadfce;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:700}
+.toolbar{position:static;background:#fff;border:1px solid var(--line);border-radius:17px;padding:10px;margin:12px 0;display:flex;gap:8px;flex-wrap:wrap;transition:opacity .15s ease}.toolbar.scroll-hidden{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+.btn{border:0;border-radius:10px;padding:10px 12px;font-weight:800;background:#eef1f4}.primary{background:var(--green);color:#fff}.blue{background:var(--blue);color:#fff}.orange{background:var(--orange);color:#fff}
+.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:14px}@media(max-width:760px){.grid{grid-template-columns:1fr}.hero h1{font-size:25px}}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:17px;margin:12px 0}.card h2{font-size:20px;margin:0 0 12px}
+.factgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}@media(max-width:520px){.factgrid{grid-template-columns:1fr}}
+.fact{border:1px solid var(--line);border-radius:12px;padding:10px}.fact b{display:block;font-size:12px;color:var(--muted)}
+label{display:block;font-size:12px;font-weight:800;color:#4b5563;margin:10px 0 5px}
+input,textarea{width:100%;border:1px solid #d7dce1;border-radius:10px;padding:10px;background:#fff}textarea{min-height:85px;resize:vertical}
+.voice-ref{margin:6px 0 7px;padding:9px 11px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:10px;color:#64748b;font-size:12px}.voice-ref b{color:#475569}
+.note{background:#fff9f1;border-left:4px solid #d79a3a;padding:10px 12px;border-radius:8px;font-size:13px;color:#5f503b}
+.shot{border:1px solid var(--line);border-radius:15px;overflow:hidden;margin:11px 0;background:#fff}.shothead{display:flex;gap:10px;padding:12px}.num{width:30px;height:30px;border-radius:9px;background:#fff3e8;color:#a65200;display:flex;align-items:center;justify-content:center;font-weight:900}.st{flex:1}.st b{display:block}.st span{font-size:12px;color:var(--muted)}
+.shotbody{padding:0 12px 12px}.photo{min-height:145px;border:1.5px dashed #cbd5e1;border-radius:11px;background:#fafafa;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#94a3b8;font-size:13px;text-align:center}.photo img{width:100%;height:auto}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.actions label,.actions button{margin:0;border:0;border-radius:10px;padding:11px 10px;font-weight:800;font-size:13px;background:#eef2f4;cursor:pointer;text-align:center}.actions .camera{background:#e8fff1;color:#067a38}.actions .gallery{background:#eaf2ff;color:#1559b7;border:1px solid #bdd3ff}.actions button{grid-column:auto}@media(max-width:430px){.actions{grid-template-columns:1fr 1fr}.actions label{font-size:12px;padding:11px 6px}}
+.preview{white-space:pre-wrap;border:1px solid var(--line);border-radius:14px;padding:17px;min-height:260px;line-height:1.9}
+.score{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.score button{border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px}.score button.on{background:#fff4e6;border-color:#ffc57d;color:#d66800}
+.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{border:1px solid var(--line);border-radius:999px;padding:6px 9px;font-size:12px}
+.export-note{background:#eef7ff;border:1px solid #c9e2ff;color:#244b70;padding:10px 12px;border-radius:12px;margin-top:10px;font-size:13px}
+.insert-shot{display:flex;align-items:center;gap:10px;margin:8px 0 12px}
+.insert-shot:before,.insert-shot:after{content:"";height:1px;background:#dbe1e7;flex:1}
+.insert-shot button{border:1px dashed #b8c1cc;background:#fff;color:#475569;border-radius:999px;padding:8px 14px;font-weight:800;font-size:12px;white-space:nowrap}
+.shot{touch-action:manipulation}
+.shot.dragging{opacity:.55;transform:scale(.99);box-shadow:0 10px 30px rgba(15,23,42,.12)}
+.shot.drag-over{outline:2px solid #2563eb;outline-offset:2px}
+.drag-handle{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:9px;background:#eef2f7;color:#475569;font-weight:900;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none}
+.drag-handle:active{cursor:grabbing}
+.shothead{align-items:center}
+.drag-tip{font-size:11px;color:#94a3b8;margin-left:auto;white-space:nowrap}
+.title-edit{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px 10px}.title-edit label{margin:0}.title-edit input{margin-top:4px;padding:8px;font-size:13px}.guide-edit{grid-column:1/-1}@media(max-width:560px){.title-edit{grid-template-columns:1fr}.guide-edit{grid-column:auto}.drag-tip{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<small>NAVER BLOG REVIEW INDEX · E-BIKE</small>
+<h1>삼천리자전거 16 팬텀 어라운드<br>구입·시승 리뷰 INDEX</h1>
+<p>구입 과정·제품 사진·주행 테스트·음성메모까지 현장에서 바로 기록하는 리뷰용 템플릿</p>
+<div class="chips"><span class="chip">삼천리자전거</span><span class="chip">팬텀어라운드</span><span class="chip">전기자전거</span><span class="chip">미니벨로</span><span class="chip">시승후기</span></div>
+<div class="export-note">📦 HTML 내보내기 시 모든 사진을 자동으로 약 1/5 용량으로 압축한 뒤, 사진과 메모를 HTML 한 파일 안에 포함합니다.</div>
+</section>
+
+<div class="toolbar">
+<button class="btn primary" onclick="draft()">✍️ 블로그 초안 생성</button>
+<button class="btn blue" onclick="copyDraft()">📋 초안 복사</button>
+<button class="btn orange" onclick="exportHTML()">📦 사진포함 HTML 내보내기 (1/5)</button>
+<button class="btn" onclick="exportHTMLNoPhotos()">📄 사진 제외 HTML 내보내기</button>
+<button class="btn" onclick="downloadPhotos()">📥 사진 일괄다운로드</button>
+<span id="saveState" style="margin-left:auto;font-size:12px;color:#6b7280">자동저장 준비</span>
+</div>
+
+<div class="grid"><div>
+<section class="card"><h2>1. 구입 제품 기본정보</h2>
+<div class="factgrid">
+<div class="fact"><b>제품명</b>삼천리자전거 16 팬텀 어라운드</div><div class="fact"><b>형태</b>16인치 생활형 전기 미니벨로</div>
+<div class="fact"><b>모터 참고</b>48V 350W BLDC 후륜 허브모터</div><div class="fact"><b>배터리 참고</b>46.8V 7.8Ah · 365.04Wh</div>
+<div class="fact"><b>주행거리 참고</b>PAS 1단 약 50km · 스로틀 1단 약 40km</div><div class="fact"><b>최고속도 참고</b>24km/h</div>
+</div>
+<div class="note" style="margin-top:10px">공식 공개 사양 기준 참고값입니다. 연식과 PAS 전용·스로틀 겸용 등 세부 모델에 따라 달라질 수 있으므로 제품 라벨과 설명서를 다시 확인하세요.</div>
+<label>구입일</label><input id="visitDate" type="date">
+<label>연식·세부 모델</label><input id="party" placeholder="예: 2026년형 / PAS 전용 / PAS·스로틀 겸용">
+<label>구입처·수령 방식</label><input id="reservation" placeholder="예: 삼천리 대리점 방문 구입 / 완전조립 수령">
+<label>색상·추가 옵션</label><input id="orderMenu" placeholder="예: 샌드 베이지 / 바구니·헬멧 추가">
+<label>총 구입금액</label><input id="price" placeholder="예: 750,000원">
+</section>
+
+<section class="card"><h2>2. 구입·수령 체크</h2><div class="voice-ref"><b>현장 확인:</b> 모델명·차대번호·배터리·충전기·보증서·영수증과 조립 상태를 촬영해 두세요.</div></section>
+
+<section class="card"><h2>3. 사진 촬영 + 사진별 음성메모</h2><div id="shots"></div><button class="btn" style="width:100%" onclick="addShot()">＋ 맨 아래에 사진 항목 추가</button></section>
+</div><div>
+
+<section class="card"><h2>4. 핵심 후기 메모</h2>
+<label>구입 이유</label><div class="voice-ref"><b>말하기 참고:</b> 출퇴근·장보기·근거리 이동 등 왜 전기자전거가 필요했는지, 다른 모델과 비교한 이유</div><textarea id="parking" placeholder="구입 이유를 입력하세요"></textarea>
+<label>구입 과정</label><div class="voice-ref"><b>말하기 참고:</b> 매장 상담, 재고와 색상, 할인, 조립·배송, 보험과 안전 안내가 어땠는지</div><textarea id="waiting" placeholder="구입 과정을 입력하세요"></textarea>
+<label>디자인·첫인상</label><div class="voice-ref"><b>말하기 참고:</b> 실제 색상, 프레임 마감, 크기, 바구니와 짐받이, 사진과 실물의 차이</div><textarea id="exterior" placeholder="디자인과 첫인상을 입력하세요"></textarea>
+<label>조작·편의성</label><div class="voice-ref"><b>말하기 참고:</b> 전원, PAS 단계, 스로틀, 디스플레이, 배터리 탈착, 충전과 보관 편의</div><textarea id="interior" placeholder="조작과 편의성을 입력하세요"></textarea>
+<label>대리점·A/S</label><div class="voice-ref"><b>말하기 참고:</b> 제품 설명, 피팅과 조립 상태, 브레이크 점검, 보증과 향후 정비 접근성</div><textarea id="service" placeholder="대리점과 A/S 후기를 입력하세요"></textarea>
+</section>
+
+<section class="card"><h2>5. 시승 평가</h2>
+<label>주행감·승차감</label><div class="voice-ref"><b>말하기 참고:</b> 출발 반응, PAS 단계별 차이, 가속감, 안장과 서스펜션, 작은 바퀴의 느낌</div><textarea id="mainDish" placeholder="주행감과 승차감을 입력하세요"></textarea>
+<label>언덕·브레이크·소음</label><div class="voice-ref"><b>말하기 참고:</b> 평지와 언덕에서의 힘, 제동감, 급정지 안정성, 모터음과 진동</div><textarea id="meal" placeholder="언덕과 제동 성능을 입력하세요"></textarea>
+<label>실사용·적재성</label><div class="voice-ref"><b>말하기 참고:</b> 바구니와 짐받이, 승하차, 주차·보관, 차량 적재, 실제 이동 동선에서 편한 점</div><textarea id="kid" placeholder="실사용 관점을 입력하세요"></textarea>
+<label>가격·추천 대상</label><div class="voice-ref"><b>말하기 참고:</b> 가격 대비 만족도, 장점과 아쉬운 점, 어떤 사람과 이동 목적에 추천할지</div><textarea id="value" placeholder="가격과 추천 대상을 입력하세요"></textarea>
+<label>전체 평점</label><div class="score" id="score"><button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5</button></div>
+</section>
+
+<section class="card"><h2>6. SEO 태그</h2><div class="tags">
+<label class="tag"><input type="checkbox" class="tagcheck" value="삼천리자전거" checked>#삼천리자전거</label>
+<label class="tag"><input type="checkbox" class="tagcheck" value="팬텀어라운드" checked>#팬텀어라운드</label>
+<label class="tag"><input type="checkbox" class="tagcheck" value="전기자전거" checked>#전기자전거</label>
+<label class="tag"><input type="checkbox" class="tagcheck" value="전기자전거추천" checked>#전기자전거추천</label>
+<label class="tag"><input type="checkbox" class="tagcheck" value="전기자전거후기" checked>#전기자전거후기</label>
+<label class="tag"><input type="checkbox" class="tagcheck" value="전기미니벨로">#전기미니벨로</label>
+<label class="tag"><input type="checkbox" class="tagcheck" value="팬텀전기자전거">#팬텀전기자전거</label>
+</div></section>
+
+</div></div>
+<section class="card"><h2>7. 네이버 블로그 초안</h2><div class="preview" id="draft">‘블로그 초안 생성’을 누르면 입력 내용을 자연스러운 후기 글로 정리합니다.</div></section>
+</div>
+
+<script>
+const KEY='samchuly-phantom-around-review-v1';
+const base=[
+['구입처 외관·간판','삼천리자전거 대리점과 간판','매장 위치, 접근성, 주차와 첫인상을 말해보세요.'],
+['제품 전체 모습','좌측·우측 전체 디자인','실제 색상과 프레임 비율, 16인치 크기, 첫인상을 말해보세요.'],
+['모델명·차대번호','프레임 라벨과 제품 정보','정확한 연식, 세부 모델명, 인증·차대번호 위치를 확인해 말해보세요.'],
+['핸들·조작부','전원·디스플레이·PAS·스로틀','버튼 배치, 표시 정보, 조작 난이도와 주행 단계 차이를 말해보세요.'],
+['배터리','배터리 장착·탈착과 충전단자','용량 표시, 분리 방법, 열쇠, 충전 위치와 휴대성을 말해보세요.'],
+['모터·뒷바퀴','후륜 허브모터 근접','모터 크기, 배선 마감, 출발 반응과 소음을 말해보세요.'],
+['앞·뒤 브레이크','브레이크와 레버 근접','레버 감각, 모터 차단 반응, 평지와 내리막 제동감을 말해보세요.'],
+['안장·승차 자세','안장 높이와 실제 탑승 모습','키에 맞는지, 발 착지, 허리와 손목 자세, 승하차 편의를 말해보세요.'],
+['바구니·짐받이','전후 적재 공간','장보기나 가방 적재 크기, 고정력, 주행 중 흔들림을 말해보세요.'],
+['평지 시승','PAS 단계별 주행 장면','출발, 가속, 속도 유지, 페달링 감각과 안정성을 말해보세요.'],
+['언덕 시승','실제 오르막 구간','경사에서 속도와 모터 힘, 페달 보조가 얼마나 필요한지 말해보세요.'],
+['노면·코너링','과속방지턱과 코너 구간','서스펜션, 진동, 작은 바퀴의 안정감과 회전 느낌을 말해보세요.'],
+['충전·보관','집에서 충전하고 세워둔 모습','충전 공간, 완충 시간 체감, 무게와 이동·보관의 불편을 말해보세요.'],
+['구성품·영수증','충전기·열쇠·설명서·보증서','빠진 구성품이 없는지, 실제 구입금액과 A/S 안내를 말해보세요.'],
+['최종 장단점','시승을 마친 자전거 전체','가장 만족한 점, 아쉬운 점, 추천 대상과 재구매 의사를 말해보세요.']
+];
+let shots=[],rating=0;
+function uid(){return Math.random().toString(36).slice(2,9)}
+function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function save(){
+ const fields={}; document.querySelectorAll('input[id],textarea[id]').forEach(e=>fields[e.id]=e.value);
+ try{localStorage.setItem(KEY,JSON.stringify({fields,shots,rating}))}catch(e){}
+ document.getElementById('saveState').textContent='자동저장 완료 ✓';
+}
+function init(){
+ let o=null; try{o=JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){}
+ if(o){shots=o.shots||[];rating=o.rating||0;Object.entries(o.fields||{}).forEach(([k,v])=>{const e=document.getElementById(k);if(e)e.value=v})}
+ if(!shots.length)shots=base.map(x=>({id:uid(),title:x[0],hint:x[1],guide:x[2],memo:'',img:''}));
+ document.querySelectorAll('input[id],textarea[id]').forEach(e=>e.addEventListener('input',save));
+ render(); setRating(rating,false); save();
+ syncToolbarVisibility();
+}
+function syncToolbarVisibility(){
+ const toolbar=document.querySelector('.toolbar');
+ if(toolbar)toolbar.classList.toggle('scroll-hidden',(window.scrollY||document.documentElement.scrollTop||0)>50);
+}
+function render(){
+ const box=document.getElementById('shots'); box.innerHTML='';
+ shots.forEach((s,i)=>{
+  const el=document.createElement('div');
+  el.className='shot';
+  el.dataset.id=s.id;
+  el.setAttribute('draggable','true');
+  el.innerHTML=`<div class="shothead">
+    <div class="drag-handle" title="드래그해서 순서 변경">☰</div>
+    <div class="num">${i+1}</div>
+    <div class="st"><b>${esc(s.title)}</b><span>${esc(s.hint)}</span></div>
+    <div class="drag-tip">끌어서 이동</div>
+  </div>
+  <div class="title-edit">
+   <label>촬영 타이틀<input value="${esc(s.title)}" oninput="updateShot('${s.id}','title',this.value)" placeholder="예: 외관·간판"></label>
+   <label>촬영 설명<input value="${esc(s.hint)}" oninput="updateShot('${s.id}','hint',this.value)" placeholder="예: 간판과 건물 전체"></label>
+   <label class="guide-edit">음성 메모 참고문구<input value="${esc(s.guide)}" oninput="updateShot('${s.id}','guide',this.value)" placeholder="말할 내용을 입력하세요"></label>
+  </div>
+  <div class="shotbody"><div class="photo">${s.img?`<img src="${s.img}" alt="${esc(s.title)}">`:'사진을 촬영하거나 보관함에서 선택하세요'}</div>
+  <div class="actions"><label class="camera">📷 바로 촬영<input class="hidden" type="file" accept="image/*" capture="environment" onchange="photo(event,'${s.id}')"></label>
+  <label class="gallery">🖼️ 보관함에서 불러오기<input class="hidden" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" onchange="photo(event,'${s.id}')"></label>
+  <button onclick="delPhoto('${s.id}')">사진삭제</button><button onclick="delShot('${s.id}')">항목삭제</button></div>
+  <label>사진별 코멘트</label><div class="voice-ref"><b>음성 메모 참고:</b> ${esc(s.guide)}</div>
+  <textarea placeholder="사진별 코멘트를 입력하세요" oninput="memo('${s.id}',this.value)">${esc(s.memo||'')}</textarea></div>`;
+  box.appendChild(el);
+
+  const insert=document.createElement('div');
+  insert.className='insert-shot';
+  insert.innerHTML=`<button type="button" onclick="insertShot(${i+1})">＋ 여기 사이에 사진 항목 추가</button>`;
+  box.appendChild(insert);
+ });
+ bindDragAndDrop();
+}
+
+let dragId=null;
+function bindDragAndDrop(){
+ document.querySelectorAll('#shots .shot').forEach(el=>{
+  el.addEventListener('dragstart',e=>{
+   dragId=el.dataset.id;
+   el.classList.add('dragging');
+   try{e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',dragId)}catch(_){}
+  });
+  el.addEventListener('dragend',()=>{
+   dragId=null;
+   document.querySelectorAll('#shots .shot').forEach(x=>x.classList.remove('dragging','drag-over'));
+  });
+  el.addEventListener('dragover',e=>{
+   e.preventDefault();
+   if(el.dataset.id!==dragId)el.classList.add('drag-over');
+   try{e.dataTransfer.dropEffect='move'}catch(_){}
+  });
+  el.addEventListener('dragleave',()=>el.classList.remove('drag-over'));
+  el.addEventListener('drop',e=>{
+   e.preventDefault();
+   el.classList.remove('drag-over');
+   const fromId=dragId || (()=>{try{return e.dataTransfer.getData('text/plain')}catch(_){return ''}})();
+   const toId=el.dataset.id;
+   if(fromId&&toId&&fromId!==toId)moveShotBefore(fromId,toId);
+  });
+ });
+
+ // Mobile / touch long-press style drag via Pointer Events on handle
+ document.querySelectorAll('#shots .drag-handle').forEach(handle=>{
+  let active=false, sourceId=null, ghost=null, lastTargetId=null;
+  const shot=handle.closest('.shot');
+  handle.addEventListener('pointerdown',e=>{
+   if(e.pointerType==='mouse') return; // desktop uses native drag
+   active=true; sourceId=shot.dataset.id;
+   handle.setPointerCapture?.(e.pointerId);
+   shot.classList.add('dragging');
+   ghost=shot.cloneNode(true);
+   ghost.style.position='fixed';
+   ghost.style.left='12px';
+   ghost.style.right='12px';
+   ghost.style.top=(e.clientY-35)+'px';
+   ghost.style.zIndex='9999';
+   ghost.style.pointerEvents='none';
+   ghost.style.opacity='.85';
+   ghost.style.maxHeight='120px';
+   ghost.style.overflow='hidden';
+   document.body.appendChild(ghost);
+   e.preventDefault();
+  });
+  handle.addEventListener('pointermove',e=>{
+   if(!active) return;
+   if(ghost) ghost.style.top=(e.clientY-35)+'px';
+   const target=document.elementFromPoint(e.clientX,e.clientY)?.closest?.('.shot');
+   document.querySelectorAll('#shots .shot').forEach(x=>x.classList.remove('drag-over'));
+   if(target && target.dataset.id!==sourceId){
+    target.classList.add('drag-over');
+    lastTargetId=target.dataset.id;
+   }
+   e.preventDefault();
+  });
+  const finish=e=>{
+   if(!active) return;
+   active=false;
+   try{handle.releasePointerCapture?.(e.pointerId)}catch(_){}
+   shot.classList.remove('dragging');
+   document.querySelectorAll('#shots .shot').forEach(x=>x.classList.remove('drag-over'));
+   if(ghost){ghost.remove();ghost=null}
+   if(sourceId&&lastTargetId&&sourceId!==lastTargetId)moveShotBefore(sourceId,lastTargetId);
+   sourceId=null; lastTargetId=null;
+  };
+  handle.addEventListener('pointerup',finish);
+  handle.addEventListener('pointercancel',finish);
+ });
+}
+function moveShotBefore(fromId,toId){
+ const fromIndex=shots.findIndex(x=>x.id===fromId);
+ const toIndex=shots.findIndex(x=>x.id===toId);
+ if(fromIndex<0||toIndex<0||fromIndex===toIndex)return;
+ const [item]=shots.splice(fromIndex,1);
+ const adjustedTo=shots.findIndex(x=>x.id===toId);
+ shots.splice(adjustedTo,0,item);
+ render();
+ save();
+}
+function photo(e,i){const f=e.target.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{const s=shots.find(x=>x.id===i);if(s)s.img=r.result;render();save()};r.readAsDataURL(f)}
+function memo(i,v){const s=shots.find(x=>x.id===i);if(s)s.memo=v;save()}
+function updateShot(i,key,value){const s=shots.find(x=>x.id===i);if(!s||!['title','hint','guide'].includes(key))return;s[key]=value;save()}
+function delPhoto(i){const s=shots.find(x=>x.id===i);if(s){s.img='';render();save()}}
+function delShot(i){shots=shots.filter(x=>x.id!==i);render();save()}
+function newShot(){return {id:uid(),title:'추가 사진',hint:'필요한 장면',guide:'사진에 보이는 것 → 실제 느낀 점 → 블로그에 남길 포인트 순서로 말해보세요.',memo:'',img:''}}
+function addShot(){shots.push(newShot());render();save()}
+function insertShot(index){shots.splice(index,0,newShot());render();save()}
+function setRating(n,doSave=true){rating=Number(n)||0;document.querySelectorAll('#score button').forEach(b=>b.classList.toggle('on',Number(b.dataset.v)<=rating));if(doSave)save()}
+document.addEventListener('click',e=>{if(e.target.matches('#score button'))setRating(e.target.dataset.v)});
+function v(i){return(document.getElementById(i)?.value||'').trim()}
+function sm(k){const s=shots.find(x=>x.title.includes(k));return s?.memo?.trim()||''}
+function p(h,t){return t?h+'\n'+t+'\n\n':''}
+function draft(){
+ let t=`근거리 이동과 생활용으로 사용할 전기자전거를 알아보다가 삼천리자전거 16 팬텀 어라운드를 구입하고 직접 시승해 봤어요. 구입 과정부터 디자인, 조작법, 평지와 언덕 주행감까지 실제 사용 기준으로 기록해 봅니다.\n\n🚲 삼천리자전거 16 팬텀 어라운드\n형태 : 16인치 생활형 전기 미니벨로\n모터 참고 : 48V 350W BLDC 후륜 허브모터\n배터리 참고 : 46.8V 7.8Ah · 365.04Wh\n`;
+ if(v('visitDate'))t+=`구입일 : ${v('visitDate')}\n`; if(v('party'))t+=`연식·세부 모델 : ${v('party')}\n`; if(v('reservation'))t+=`구입처·수령 방식 : ${v('reservation')}\n`; if(v('orderMenu'))t+=`색상·추가 옵션 : ${v('orderMenu')}\n`; if(v('price'))t+=`총 구입금액 : ${v('price')}\n`; t+='\n';
+ t+=p('구입 이유',v('parking')||sm('구입처'));t+=p('구입 과정과 수령 상태',v('waiting')||sm('구성품'));t+=p('디자인과 첫인상',v('exterior')||sm('제품 전체'));t+=p('조작과 충전 편의성',v('interior')||sm('조작부')||sm('배터리'));t+=p('대리점 설명과 A/S',v('service'));t+=p('주행감과 승차감',v('mainDish')||sm('평지 시승')||sm('안장'));t+=p('언덕·브레이크·노면 주행',v('meal')||sm('언덕 시승')||sm('브레이크')||sm('노면'));if(v('kid'))t+=p('실사용과 적재성',v('kid'));if(v('value'))t+=p('가격과 추천 대상',v('value'));
+ t+='총평\n팬텀 어라운드는 콤팩트한 크기와 생활형 적재 구성을 갖춘 전기자전거로, 실제 이동 동선과 언덕 환경에서의 체감이 선택의 핵심이었어요.'; if(rating)t+=` 개인적인 만족도는 ${rating}/5점입니다.`;
+ const tags=[...document.querySelectorAll('.tagcheck:checked')].map(x=>'#'+x.value).join(' ');t+='\n\n'+(tags||'#삼천리자전거 #팬텀어라운드 #전기자전거 #전기자전거추천 #전기자전거후기');
+ document.getElementById('draft').textContent=t; save(); return t;
+}
+async function copyDraft(){try{await navigator.clipboard.writeText(draft());alert('초안을 복사했습니다.')}catch(e){alert('복사가 제한되었습니다.')}}
+
+/* 이미지 크기를 원본 데이터 용량의 약 20%(1/5) 수준으로 줄인다.
+   HEIC 등 브라우저가 읽은 이미지는 JPEG로 내보낸다. */
+function compressImage(dataURL,targetRatio=0.20){
+ return new Promise((resolve)=>{
+  if(!dataURL||!dataURL.startsWith('data:image/')){resolve(dataURL);return}
+  const img=new Image();
+  img.onload=()=>{
+   const originalBytes=Math.max(1,Math.floor((dataURL.length-(dataURL.indexOf(',')+1))*0.75));
+   const targetBytes=Math.max(20*1024,Math.floor(originalBytes*targetRatio));
+   let scale=Math.min(1,Math.sqrt(targetRatio)*1.35);
+   let quality=0.82;
+   let tries=0,best=dataURL;
+   const work=()=>{
+    const c=document.createElement('canvas');
+    c.width=Math.max(1,Math.round(img.naturalWidth*scale));
+    c.height=Math.max(1,Math.round(img.naturalHeight*scale));
+    const ctx=c.getContext('2d',{alpha:false});
+    ctx.drawImage(img,0,0,c.width,c.height);
+    const out=c.toDataURL('image/jpeg',quality);
+    best=out;
+    const bytes=Math.floor((out.length-(out.indexOf(',')+1))*0.75);
+    if(bytes<=targetBytes || tries>=8 || (c.width<600 && c.height<600)){resolve(best);return}
+    tries++;
+    if(quality>0.48)quality-=0.09; else scale*=0.82;
+    setTimeout(work,0);
+   };
+   work();
+  };
+  img.onerror=()=>resolve(dataURL);
+  img.src=dataURL;
+ });
+}
+
+function applyCurrentFormValues(clone){
+ document.querySelectorAll('input,textarea').forEach(src=>{
+  if(!src.id)return;
+  const dst=clone.querySelector('#'+CSS.escape(src.id));
+  if(!dst)return;
+  if(src.tagName==='TEXTAREA')dst.textContent=src.value;
+  else if(src.type==='checkbox'||src.type==='radio'){
+   if(src.checked)dst.setAttribute('checked','checked'); else dst.removeAttribute('checked');
+  } else dst.setAttribute('value',src.value);
+ });
+}
+
+async function exportHTML(){
+ save();
+ const btn=event?.target;
+ const old=btn?.textContent;
+ if(btn){btn.disabled=true;btn.textContent='⏳ 사진 압축 중...'}
+ const state=document.getElementById('saveState');
+ state.textContent='사진을 1/5 용량으로 압축 중…';
+ try{
+  const compressed=[];
+  for(let i=0;i<shots.length;i++){
+   const s=shots[i];
+   state.textContent=`사진 압축 중 ${i+1}/${shots.length}`;
+   compressed.push({...s,img:s.img?await compressImage(s.img,0.20):''});
+  }
+
+  const clone=document.documentElement.cloneNode(true);
+  applyCurrentFormValues(clone);
+
+  const shotBox=clone.querySelector('#shots');
+  if(shotBox){
+   shotBox.innerHTML='';
+   compressed.forEach((s,i)=>{
+    const wrap=document.createElement('div');wrap.className='shot';
+    wrap.innerHTML=`<div class="shothead"><div class="num">${i+1}</div><div class="st"><b>${esc(s.title)}</b><span>${esc(s.hint)}</span></div></div>
+    <div class="shotbody"><div class="photo">${s.img?`<img src="${s.img}" alt="${esc(s.title)}">`:'사진 없음'}</div>
+    <label>사진별 코멘트</label><div class="voice-ref">${esc(s.memo||'')}</div></div>`;
+    shotBox.appendChild(wrap);
+   });
+  }
+
+  const toolbar=clone.querySelector('.toolbar');
+  if(toolbar)toolbar.innerHTML='<div style="font-size:13px;font-weight:800">📦 사진 1/5 압축 포함 내보내기 완료본</div>';
+
+  clone.querySelectorAll('.insert-shot,.drag-handle,.drag-tip').forEach(x=>x.remove());
+  clone.querySelectorAll('.shot').forEach(x=>{x.removeAttribute('draggable');x.removeAttribute('data-id');x.classList.remove('dragging','drag-over')});
+  clone.querySelectorAll('button[onclick],input[type=file]').forEach(x=>x.remove());
+  const addBtn=[...clone.querySelectorAll('button')].find(x=>x.textContent.includes('사진 항목 추가'));
+  if(addBtn)addBtn.remove();
+
+  const exportScript=clone.querySelector('script');
+  if(exportScript)exportScript.remove();
+
+  const draftEl=clone.querySelector('#draft');
+  const currentDraft=document.getElementById('draft');
+  if(draftEl&&currentDraft)draftEl.textContent=currentDraft.textContent;
+
+  const out='<!doctype html>\n'+clone.outerHTML;
+  const blob=new Blob([out],{type:'text/html;charset=utf-8'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='삼천리_팬텀_어라운드_구입시승리뷰_사진포함_'+new Date().toISOString().slice(0,10)+'.html';
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1500);
+  state.textContent='HTML 내보내기 완료 ✓';
+ }catch(err){
+  console.error(err); alert('HTML 내보내기에 실패했습니다. 사진 수를 줄이거나 Safari에서 다시 시도해주세요.');
+  state.textContent='내보내기 실패';
+ }finally{
+  if(btn){btn.disabled=false;btn.textContent=old}
+ }
+}
+
+
+async function exportHTMLNoPhotos(){
+ save();
+ const state=document.getElementById('saveState');
+ state.textContent='사진 제외 HTML 만드는 중…';
+ try{
+  const clone=document.documentElement.cloneNode(true);
+  applyCurrentFormValues(clone);
+
+  const shotBox=clone.querySelector('#shots');
+  if(shotBox){
+   shotBox.innerHTML='';
+   shots.forEach((s,i)=>{
+    const wrap=document.createElement('div');wrap.className='shot';
+    wrap.innerHTML=`<div class="shothead"><div class="num">${i+1}</div><div class="st"><b>${esc(s.title)}</b><span>${esc(s.hint)}</span></div></div>
+    <div class="shotbody">
+    <label>사진별 코멘트</label><div class="voice-ref">${esc(s.memo||'')}</div></div>`;
+    shotBox.appendChild(wrap);
+   });
+  }
+
+  const toolbar=clone.querySelector('.toolbar');
+  if(toolbar)toolbar.innerHTML='<div style="font-size:13px;font-weight:800">📄 사진 제외 HTML 내보내기 완료본</div>';
+
+  clone.querySelectorAll('.insert-shot,.drag-handle,.drag-tip').forEach(x=>x.remove());
+  clone.querySelectorAll('.shot').forEach(x=>{x.removeAttribute('draggable');x.removeAttribute('data-id');x.classList.remove('dragging','drag-over')});
+  clone.querySelectorAll('button[onclick],input[type=file]').forEach(x=>x.remove());
+
+  const exportScript=clone.querySelector('script');
+  if(exportScript)exportScript.remove();
+
+  const draftEl=clone.querySelector('#draft');
+  const currentDraft=document.getElementById('draft');
+  if(draftEl&&currentDraft)draftEl.textContent=currentDraft.textContent;
+
+  const out='<!doctype html>\n'+clone.outerHTML;
+  const blob=new Blob([out],{type:'text/html;charset=utf-8'});
+  const a=document.createElement('a');
+  const url=URL.createObjectURL(blob);
+  a.href=url;
+  a.download='삼천리_팬텀_어라운드_구입시승리뷰_사진제외_'+new Date().toISOString().slice(0,10)+'.html';
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+  state.textContent='사진 제외 HTML 내보내기 완료 ✓';
+ }catch(err){
+  console.error(err);
+  alert('사진 제외 HTML 내보내기에 실패했습니다.');
+  state.textContent='내보내기 실패';
+ }
+}
+
+function downloadPhotos(){
+ const arr=shots.filter(x=>x.img);
+ if(!arr.length){alert('사진이 없습니다.');return}
+ arr.forEach((s,i)=>{const a=document.createElement('a');a.href=s.img;a.download=String(i+1).padStart(2,'0')+'_'+s.title+'.jpg';document.body.appendChild(a);a.click();a.remove()});
+}
+window.addEventListener('load',init);
+window.addEventListener('scroll',syncToolbarVisibility,{passive:true});
+</script>
+</body>
+</html>
